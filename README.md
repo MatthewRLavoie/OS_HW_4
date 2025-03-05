@@ -13,3 +13,5 @@ How to run:
 2. in terminal type: go run main.go
 
 The benchmarking effectively measures performance differences by executing concurrent enqueue and dequeue operations across multiple goroutines, stressing synchronization mechanisms under high workloads. QueueMutex uses sync.Mutex, making it suitable for moderate concurrency but prone to contention at high loads. QueueAtomic, leveraging lock-free atomic.Pointer and Compare-And-Swap (CAS), scales best in high-concurrency scenarios by avoiding blocking, though it introduces CPU overhead. QueueLock, similar to QueueMutex, explicitly locks head and tail separately, performing similarly but with slight differences in contention handling. QueueAtomic is ideal for high-throughput environments, while QueueMutex and QueueLock work better for simpler, moderate-concurrency workloads.
+
+AI usage: ChatGPT was used for help with how to create a benchmark segment of the code
